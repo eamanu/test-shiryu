@@ -1,0 +1,44 @@
+name: documentation
+
+on:
+  push:
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+env:
+  DO_NOT_TRACK: "1"
+
+jobs:
+  documenter_document:
+    name: Documenter document
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - id: check_out_code
+        name: Check out code
+        uses: actions/checkout@v7
+      - id: documenter_document
+        name: Documenter document
+        uses: "./.github/actions/documenter_document"
+        with:
+          dagger_cloud_token: ${{ secrets.DAGGER_CLOUD_TOKEN }}
+          shiryu_version: "feat/add-python-sdk-release"
+          sdk_language: "python"
+          platform: "linux/amd64"
+      - id: upload_artifact
+        name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: site/
+      - id: deploy_to_github_pages
+        name: Deploy to GitHub pages
+        uses: actions/deploy-pages@v5

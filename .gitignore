@@ -1,0 +1,6 @@
+*.swp
+/.ruff_cache/
+/dist/
+/docs/reference/api-reference/
+/site/
+__pycache__/

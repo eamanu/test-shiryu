@@ -1,0 +1,57 @@
+[project]
+name = "no-project-name"
+version = "0.0.0"
+description = ""
+readme = "README.md"
+authors = [
+  { name = "no-user-name", email = "eamanu@yaerobi.com" },
+]
+# linked to [tool.uv] environments
+# python3.6
+# - uv minium python support - https://docs.astral.sh/uv/reference/policies/python/#python-versions
+# python3.7
+# - pytest >= 7.1.0 (tester) - https://docs.pytest.org/en/stable/changelog.html#pytest-7-1-0-2022-03-13
+# python3.8
+# - uv >= 0.7 (auditor) - https://github.com/astral-sh/uv/blob/main/changelogs/0.7.x.md
+# - ty minimum python support - (checker) - https://github.com/astral-sh/ty/blob/0.0.2/pyproject.toml#L4
+# python3.9
+# - commit-check >= 2.0.0 (linter) - https://github.com/commit-check/commit-check/blob/v2.0.0/pyproject.toml#L14
+# python3.10
+# - zensical minimum python support - (documenter) - https://github.com/zensical/zensical/blob/v0.0.3/pyproject.toml#L36
+requires-python = ">=3.10"
+dependencies = []
+
+# Dependencies that will be installed for the specific module call.
+[dependency-groups]
+auditor = ["uv >= 0.11.0"]
+builder = ["hatch"]
+checker = ["pytest >= 7.4.0", "pytest-asyncio >= 0.24.0", "ty >= 0.0.1-alpha.8"]
+documenter = ["mkdocs-autorefs", "mkdocstrings-python >= 1.11.0", "zensical >= 0.0.22"]
+jupyter = ["notebook", "python-lsp-server"]
+linter = ["commit-check >= 2.0.0", "ruff >= 0.1.2"]
+releaser = ["commitizen"]
+tester = ["pytest >= 7.4.0", "pytest-asyncio >= 0.24.0", "pytest-cov >= 2.3.0", "pytest-xdist[psutil] >= 1.18.0"]
+
+[project.urls]
+# "Homepage" = ""
+# "Documentation" = ""
+# "Repository" = ""
+# "Issues" = ""
+# "Changelog" = ""
+# "Release Notes" = ""
+# "Community" = ""
+# "Twitter" = ""
+
+[build-system]
+requires = ["hatchling==1.31.0"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+# linked to [project] requires-python
+environments = [
+  "python_version == '3.10'",
+  "python_version == '3.11'",
+  "python_version == '3.12'",
+  "python_version == '3.13'",
+  "python_version == '3.14'",
+]
