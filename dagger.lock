@@ -3,5 +3,6 @@
 # Run `dagger lock update` to refresh the pinned versions.
 [["version","2"]]
 ["","git-sha",["github.com/fvonbergen/shiryu","feat/add-python-sdk-release"],"e929de38894c66575903954627bacc87c66b9bce"]
+["","git-sha",["github.com/fvonbergen/shiryu","feat/add-python-sdk-release-gitlab-variables"],"4c3d75939defda83352dd053d0bc684116c607c2"]
 ["","oci-sha",["docker.io/library/debian:trixie-slim"],"sha256:a29215f6a35e51e22adffa17f89e9d2ef06214e64a2bad10d765c46aea49f11f"]
 ["","oci-sha",["docker.io/library/python:3.12-slim"],"sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1"]
