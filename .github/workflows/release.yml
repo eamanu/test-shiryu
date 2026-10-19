@@ -28,7 +28,7 @@ jobs:
         uses: "./.github/actions/builder_publish"
         with:
           dagger_cloud_token: ${{ secrets.DAGGER_CLOUD_TOKEN }}
-          shiryu_version: "feat/add-python-sdk-release-gitlab-variables"
+          shiryu_version: "feat/add-python-sdk-release"
           sdk_language: "python"
           platform: "linux/amd64"
           repository_password: ${{ secrets.REPOSITORY_PASSWORD }}
@@ -58,7 +58,7 @@ jobs:
         uses: "./.github/actions/documenter_document"
         with:
           dagger_cloud_token: ${{ secrets.DAGGER_CLOUD_TOKEN }}
-          shiryu_version: "feat/add-python-sdk-release-gitlab-variables"
+          shiryu_version: "feat/add-python-sdk-release"
           sdk_language: "python"
           platform: "linux/amd64"
       - id: upload_artifact
@@ -87,7 +87,7 @@ jobs:
         uses: "./.github/actions/releaser_release"
         with:
           dagger_cloud_token: ${{ secrets.DAGGER_CLOUD_TOKEN }}
-          shiryu_version: "feat/add-python-sdk-release-gitlab-variables"
+          shiryu_version: "feat/add-python-sdk-release"
           sdk_language: "python"
           auth_token: ${{ secrets.AUTH_TOKEN }}
           auth_user_name: "x-access-token"
