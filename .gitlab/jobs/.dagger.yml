@@ -1,11 +1,12 @@
 .docker:
   image: docker:latest
   services:
-    - name: docker:${DOCKER_VERSION}-dind
-      command: ["--tls=false"]
+    - docker:${DOCKER_VERSION}-dind
   variables:
-    DOCKER_HOST: tcp://docker:2375
-    DOCKER_TLS_CERTDIR: ""
+    DOCKER_HOST: tcp://docker:2376
+    DOCKER_TLS_VERIFY: "1"
+    DOCKER_TLS_CERTDIR: "/certs"
+    DOCKER_CERT_PATH: "/certs/client"
     DOCKER_DRIVER: overlay2
     DOCKER_VERSION: "27.2.0"
     # dagger
@@ -18,8 +19,4 @@
   extends: .docker
   before_script:
     - apk add curl
-    - curl -fsSL https://dl.dagger.io/dagger/install.sh | DAGGER_VERSION=1.0.0-beta.19 BIN_DIR=/usr/local/bin sh
-
-  tags:
-    - amd64
-    - docker-executor
+    - curl -fsSL https://dl.dagger.io/dagger/install.sh | DAGGER_VERSION=1.0.0-beta.23 BIN_DIR=/usr/local/bin sh

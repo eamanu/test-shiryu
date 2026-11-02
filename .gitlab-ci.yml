@@ -1,9 +1,11 @@
 include:
+  - local: ".gitlab/stages/deploy.yml"
   - local: ".gitlab/stages/documentation.yml"
   - local: ".gitlab/stages/quality.yml"
   - local: ".gitlab/stages/release.yml"
 
 stages:
+  - deploy
   - documentation
   - quality
   - release

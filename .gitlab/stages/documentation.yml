@@ -4,14 +4,17 @@ include:
 documentation_documenter_document:
   extends: .documenter_document
   stage: documentation
-  needs:
-    - []
+  needs: []
+
+
 pages:
   stage: documentation
   needs:
-    - ["documentation_documenter_document"]
+    - "documentation_documenter_document"
   script:
     - echo "Deploying site"
   artifacts:
     paths:
       - public
+
+
